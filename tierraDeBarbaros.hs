@@ -12,6 +12,11 @@ dave = Barbaro { nombre = "dave",
                  habilidades = ["tejer","escribirPoesia"],
                  objetos = [ardilla]
                 }
+faffy = Barbaro { nombre = "Faffy",
+                 fuerza = 100,
+                 habilidades = ["robar","escribir poesia atroz"],
+                 objetos = [ardilla]
+                }
 
 {-consulta, esta parte del codigo tiene 3 veces logica repetida... como se elimina?-}
 modificarFuerza funcion barbaro = barbaro {fuerza = (funcion.fuerza)barbaro}
@@ -33,3 +38,21 @@ concatenarHabilidades barbaro = concat (habilidades barbaro)
 concatMayusc barbaro = map toUpper (concatenarHabilidades barbaro)
 megafono barbaro = barbaro{habilidades = [concatMayusc barbaro]}
 megafonoBarbarico  = cuerda ardilla megafono
+
+-- punto 3 Aventura = [Eventos]
+
+esteViveEsteNo condicion = map condicion
+sobrevivientes condicion = (filter (== True)).(esteViveEsteNo condicion)
+
+sabe barbaro = elem "escribir poesia atroz" (habilidades barbaro)
+invasionSuciosDuendes = sobrevivientes sabe
+
+noTienePulgares barbaro = (nombre barbaro) == "Faffy" || (nombre barbaro) == "Astro"
+cremalleraDelTiempo = sobrevivientes noTienePulgares
+
+
+sabeRobar barbaro = elem "robar" (habilidades barbaro)
+saqueo barbaro = sabeRobar barbaro && ((>80).fuerza)barbaro
+
+
+gritoDeGuerra barbaro =

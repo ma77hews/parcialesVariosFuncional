@@ -25,3 +25,11 @@ vaciarObjetos barbaro = barbaro{objetos = []}
 varitasDefectuosas = agregarHacerMagia.vaciarObjetos
 ardilla = id
 cuerda primerObjeto segundoObjeto = primerObjeto.segundoObjeto
+
+
+-- punto 2
+
+concatenarHabilidades barbaro = concat (habilidades barbaro)
+concatMayusc barbaro = map toUpper (concatenarHabilidades barbaro)
+megafono barbaro = barbaro{habilidades = [concatMayusc barbaro]}
+megafonoBarbarico  = cuerda ardilla megafono
